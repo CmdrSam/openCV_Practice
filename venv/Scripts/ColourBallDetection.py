@@ -16,7 +16,7 @@ cv2.createTrackbar("UV","Testing Image",255,255,faltuFunc)
 
 
 while(True):
-    frame = cv2.imread('smarties.png'   )
+    frame = cv2.imread('smarties.png')
     hsv = cv2.cvtColor(frame,cv2.COLOR_BGR2HSV)
 
     lH = cv2.getTrackbarPos("LH","Testing Image")
@@ -56,7 +56,7 @@ def faltuFunc(x):
     pass
 
 cv2.namedWindow("Testing Image")
-cv2.createTrackbar("LH","Testing Image",0,255,faltuFunc)
+cv2.createTrackbar("LH","Testing Image",0,255,faltuFunc)   # faltuFunc does nothing
 cv2.createTrackbar("LS","Testing Image",0,255,faltuFunc)
 cv2.createTrackbar("LV","Testing Image",0,255,faltuFunc)
 cv2.createTrackbar("UH","Testing Image",255,255,faltuFunc)
@@ -74,11 +74,8 @@ while(True):
     uH = cv2.getTrackbarPos("UH", "Testing Image")
     uS = cv2.getTrackbarPos("US", "Testing Image")
     uV = cv2.getTrackbarPos("UV", "Testing Image")
-
-    # lValue = np.array([lH,lS,lV])             # Found its value using the above code on image 
-    # uValue = np.array([uH,uS,uV])
     
-    lValue = np.array([90,128,181])
+    lValue = np.array([90,128,181])         # Found its value using the above code on image
     uValue = np.array([164,255,255])
 
     Mask = cv2.inRange(hsv,lValue,uValue)
